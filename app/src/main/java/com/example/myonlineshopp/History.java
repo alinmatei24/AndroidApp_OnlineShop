@@ -24,12 +24,8 @@ public class History extends AppCompatActivity {
 
         String[]commands=Client.getCommands(curentUser);
         for(int i=0;i<commands.length;i++){
-            Random r = new Random();
-            int low = 10;
-            int high = 100;
-            int result = r.nextInt(high-low) + low;
-           // System.out.println(i+"-"+commands[i]);
-            history.add("Id Comanda:" + result );
+            int result = i+1;
+            history.add("Nr Comanda:" + result );
             history.add("Produse: "+commands[i]);
         }
 

@@ -33,7 +33,7 @@ public class ProductPage extends AppCompatActivity {
         price.setText("$" + productChosen.getPrice());
     }
 
-    public void addToChartButton(View view) {
+    public void addToCartButton(View view) {
         app.chart.add(productChosen);
     }
 

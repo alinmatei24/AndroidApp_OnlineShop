@@ -48,7 +48,7 @@ public class app extends AppCompatActivity  {
                           selectedFragment = new HomeFragment();
                           break;
                       case R.id.nav_chart:
-                          selectedFragment = new ChartFragment();
+                          selectedFragment = new CartFragment();
                           break;
                       case R.id.nav_profile:
                           selectedFragment = new ProfileFragment();

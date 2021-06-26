@@ -15,7 +15,7 @@
             android:textSize="26dp"
             android:textStyle="bold"
             android:layout_gravity="center"
-            android:text="Chart" />
+            android:text="Cart" />
 
 
         <ListView
