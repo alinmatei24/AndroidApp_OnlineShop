@@ -70,6 +70,7 @@ public class CartFragment extends Fragment {
         System.out.println("Adaugare comanda");
         Client.addComanda(curentUser,products);
         app.chart.clear();
+
     }
     public void onClickVeziIstoric(final View v){
         System.out.println("Vezi istoric");

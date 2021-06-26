@@ -27,6 +27,7 @@ public class History extends AppCompatActivity {
             int result = i+1;
             history.add("Nr Comanda:" + result );
             history.add("Produse: "+commands[i]);
+            System.out.println(commands[i]);
         }
 
         adapter=new ArrayAdapter<String>(this, R.layout.textcente1r, R.id.textHistory, history);

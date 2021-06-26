@@ -4,6 +4,7 @@ import java.net.*;
 import java.io.*;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Client extends Thread{
     private static Socket socket= null;
@@ -483,29 +484,28 @@ public class Client extends Thread{
             e.printStackTrace();
         }
         //din myString creez lista de produse
+        //System.out.println(result[0]);
         String dePeServer=result[0];
-        String[]produse=dePeServer.split("&|\\^");
-        System.out.println("Acuma split, lungime: "+ produse.length);
+        String[]produseString=dePeServer.split("&");
+        //System.out.println("Acuma split, lungime: "+ produseString.length);
         //acuma creez lista cu useri
         // stiu ca am 4 campuri la fiecare produs asa ca impart nr de elemente la 4 si fac loop
         Thread t3=new Thread(new Runnable() {
             @Override
             public void run() {
-                for(int i=0;i<produse.length;i+=4) {
-                   // System.out.println("I:"+i);
-                    String name = produse[i];
-                    String price = produse[i + 1];
-                    String stoc = produse[i + 2];
-                    String description = produse[i + 3];
-
-                    Product nou = new Product(name, price, stoc, description);
-                    myList.add(nou);
+                for(String produs : produseString){
+                    try {
+                        Product produsNou = new Product(produs.split("asf")[0], produs.split("asf")[1], produs.split("asf")[2], produs.split("asf")[3]);
+                        //System.out.println(produsNou.getName());
+                        myList.add(produsNou);
+                    }catch(Exception e){
+                        System.out.println(produs);
+                    }
                 }
             }
         });
         t3.start();
         t3.join();
-
         return myList;
     }
     public static String[] getCommands(String email){
@@ -546,15 +546,10 @@ public class Client extends Thread{
             System.out.println("Nu am trimis mesaj\n");
             e.printStackTrace();
         }
-        //din myString creez lista de produse
+        //din myString creez lista de produse pt istoric
         String dePeServer=result[0];
-        String[]produse=dePeServer.split("\\^");
-        String[]myString=dePeServer.split("\\^");
+        String[]produse=dePeServer.split("asf")[1].split("&");
         System.out.println("Acuma split, lungime: "+ produse.length);
-        //acuma creez lista cu useri
-        for(int i=0;i<produse.length-1;i++){
-            myString[i]=produse[i+1];
-        }
-        return myString;
+        return produse;
     }
 }

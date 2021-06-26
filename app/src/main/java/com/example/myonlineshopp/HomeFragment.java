@@ -40,6 +40,9 @@ public class HomeFragment extends Fragment {
 
         try {
             getProducts();
+            for(RowItem item : myRowItems){
+                System.out.println(item.getName());
+            }
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -66,12 +69,14 @@ public class HomeFragment extends Fragment {
     private void getProducts() throws InterruptedException {
         String a="product";
         ArrayList<Product> myList=Client.getProducts();
-        for(int i=0;i<myList.size();i++){
+        for(Product produse : myList){
             RowItem nou=new RowItem();
-            nou.setName(myList.get(i).getName());
-            nou.setPrice(myList.get(i).getPrice());
+            nou.setName(produse.getName());
+            nou.setPrice(produse.getPrice());
             nou.setImg(R.drawable.product);
             myRowItems.add(nou);
         }
+
+
     }
 }

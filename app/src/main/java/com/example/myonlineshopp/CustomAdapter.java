@@ -13,22 +13,23 @@ import java.util.ArrayList;
 public class CustomAdapter extends BaseAdapter {
     private ArrayList<RowItem> singleRow;
     private LayoutInflater thisInflater;
+    private Context context;
 
     public CustomAdapter(Context context, ArrayList<RowItem> aRow) {
-
+        this.context=context;
         this.singleRow = aRow;
-        thisInflater = ( LayoutInflater.from(context) );
+        thisInflater = (LayoutInflater.from(context));
 
     }
 
     @Override
     public int getCount() {
-        return singleRow.size( );
+        return singleRow.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return singleRow.get( position );
+        return singleRow.get(position);
     }
 
     @Override
@@ -38,20 +39,18 @@ public class CustomAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
         if (convertView == null) {
             convertView = thisInflater.inflate( R.layout.textcenter, parent, false );
-
-            TextView theHeading = (TextView) convertView.findViewById(R.id.textName);
-            TextView theSubHeading = (TextView) convertView.findViewById(R.id.textPrice);
-            ImageView theImage = (ImageView) convertView.findViewById(R.id.img);
-
-            RowItem currentRow = (RowItem) getItem(position);
-
-            theHeading.setText(currentRow.getName());
-            theSubHeading.setText(currentRow.getPrice());
-            theImage.setImageResource(currentRow.getImg());
-
         }
+        TextView theHeading = (TextView) convertView.findViewById(R.id.textName);
+        TextView theSubHeading = (TextView) convertView.findViewById(R.id.textPrice);
+        ImageView theImage = (ImageView) convertView.findViewById(R.id.img);
+
+        RowItem currentRow = (RowItem) getItem(position);
+        theHeading.setText(currentRow.getName());
+        theSubHeading.setText(currentRow.getPrice());
+        theImage.setImageResource(currentRow.getImg());
         return convertView;
     }
 }
