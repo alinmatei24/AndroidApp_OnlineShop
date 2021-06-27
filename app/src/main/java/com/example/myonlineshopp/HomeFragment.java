@@ -67,13 +67,69 @@ public class HomeFragment extends Fragment {
     }
 
     private void getProducts() throws InterruptedException {
-        String a="product";
+        String produs="product";
         ArrayList<Product> myList=Client.getProducts();
         for(Product produse : myList){
             RowItem nou=new RowItem();
             nou.setName(produse.getName());
             nou.setPrice(produse.getPrice());
-            nou.setImg(R.drawable.product);
+            produs=produse.getName();
+            switch(produs) {
+                case "Laptop-Hp" :
+                    {
+                        nou.setImg(R.drawable.laptop);
+                }
+                break;
+                case "Smartphone-A32" :
+                {
+                    nou.setImg(R.drawable.smartphone);
+                }
+                break;
+                case "Televizor-Led" :
+                {
+                    nou.setImg(R.drawable.tv);
+                }
+                break;
+                case "Monitor-Led" :
+                {
+                    nou.setImg(R.drawable.monitor);
+                }
+                break;
+                case "Xerox-Hp" :
+                {
+                    nou.setImg(R.drawable.xerox);
+                }
+                break;
+                case "Router-Wireless" :
+                {
+                    nou.setImg(R.drawable.router);
+                }
+                break;
+                case "Casti-Energy" :
+                {
+                    nou.setImg(R.drawable.casti);
+                }
+                break;
+                case "Mouse-Redragon" :
+                {
+                    nou.setImg(R.drawable.mouse);
+                }
+                break;
+                case "Mouse-pad" :
+                {
+                    nou.setImg(R.drawable.mousepad);
+                }
+                break;
+                case "Tastatura-Logitech" :
+                {
+                    nou.setImg(R.drawable.tastatura);
+                }
+                break;
+                default:
+                {
+                    nou.setImg(R.drawable.product);
+                }
+            }
             myRowItems.add(nou);
         }
 
