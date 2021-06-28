@@ -16,7 +16,7 @@ public class Client extends Thread{
 
     public static void connectToServer(){
         try{
-            socket=new Socket( "192.168.100.3", 5050);
+            socket=new Socket( "169.254.233.98", 5050);
             System.out.println("Conected to the server\n");
 
         } catch (UnknownHostException e) {
