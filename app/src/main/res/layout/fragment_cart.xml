@@ -17,6 +17,13 @@
             android:layout_gravity="center"
             android:text="Cart" />
 
+        <ImageView
+            android:id="@+id/emptyCart"
+            android:layout_width="match_parent"
+            android:layout_height="325dp"
+            android:background="@drawable/emptycart"
+            />
+
 
         <ListView
             android:id="@+id/chartList"
